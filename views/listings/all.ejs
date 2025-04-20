@@ -1,0 +1,27 @@
+<% layout("layouts/boilerplate")%>
+<body>
+    <%for(let fb of allfb){ %>
+    <%if(fb.text!=""){ %>
+        <div class="feedback medium">
+            <%=fb.text%>
+        </div>
+        <div>
+            rating : <%=fb.rating%>/10
+        </div>
+        <br>
+        <div class="small">
+            commented by &nbsp;&nbsp; -<%=fb.email%>
+        </div>
+        <br>
+        <form action="/fb/<%=fb._id%>?_method=DELETE" method="post">
+            <button class="btn btn-dark">
+                delete
+            </button>
+        </form>
+        
+    <%}%>
+
+
+        <hr>
+    <%}%>
+</body>
